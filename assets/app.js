@@ -37,7 +37,7 @@
   var MAXHR = 190, LIM = [[171, 5], [152, 4], [133, 3], [114, 2], [0, 1]];
   var zoneOf = function (hr) { for (var i = 0; i < LIM.length; i++) if (hr >= LIM[i][0]) return LIM[i][1]; return 1; };
   var live = $$("[data-live]").map(function (el) {
-    return { el: el, base: +el.dataset.base, amp: +el.dataset.amp, ph: +el.dataset.phase, hr: $(".lc-hr", el), zn: $(".lc-zone", el), ring: $(".w-val", el), z: 0, last: 0, vis: false };
+    return { el: el, base: +el.dataset.base, amp: +el.dataset.amp, ph: +el.dataset.phase, hr: $(".lc-hr", el), zn: $(".lc-zone", el), thumb: $(".w-thumb", el), kc: $(".w-kcal", el), tm: $(".w-time", el), sec: 840 + Math.round(Math.random() * 300), kcal: 187, z: 0, last: 0, vis: false };
   });
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) { es.forEach(function (en) { live.forEach(function (l) { if (l.el === en.target) l.vis = en.isIntersecting; }); }); }, { threshold: 0.1 }) : null;
   live.forEach(function (l) { if (io) io.observe(l.el); else l.vis = true; });
@@ -51,9 +51,13 @@
       var z = zoneOf(v);
       if (z !== l.z) { l.z = z; l.el.style.setProperty("--zc", "var(--z" + z + ")"); if (l.zn) l.zn.textContent = (l.zn.classList.contains("w-zone") ? "Z" : l.zn.textContent.replace(/\d+$/, "").trim() + " ") + z; }
       if (l.ring) l.ring.setAttribute("stroke-dashoffset", (100 - v / MAXHR * 100).toFixed(1));
+      if (l.thumb) { var lo = [90, 114, 133, 152, 171], hi = [114, 133, 152, 171, 190], k = z - 1; l.thumb.style.setProperty("--p", ((k + Math.min(Math.max((v - lo[k]) / (hi[k] - lo[k]), 0), 1)) * 20).toFixed(1)); }
     });
   }
   if (!calm) setInterval(function () { if (!document.hidden) tick(performance.now()); }, 1000);
+  /* watch clock: elapsed time and kcal creep up while the card is on screen */
+  var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+  if (!calm) setInterval(function () { if (document.hidden) return; live.forEach(function (l) { if (!l.tm || !l.vis) return; l.sec++; l.kcal += 0.18; l.tm.textContent = pad(Math.floor(l.sec / 60)) + ":" + pad(l.sec % 60); l.kc.textContent = Math.round(l.kcal); }); }, 1000);
 
   /* ---------- header + nav highlight (no libraries needed) ---------- */
   var bar = $("#bar");
