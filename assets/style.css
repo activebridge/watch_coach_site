@@ -86,7 +86,7 @@ p{margin:0}
 .ecg-track{display:flex;width:200%;height:100%;animation:ecg 2.6s linear infinite}.ecg svg{width:50%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ecg path{vector-effect:non-scaling-stroke}
 @keyframes ecg{to{transform:translateX(-50%)}}
 /* Apple Watch screen, as in the real app: black, LIVE ring, big bpm, kcal / time, five-zone bar */
-.watch{--zc:var(--z3);position:relative;aspect-ratio:422/514;container-type:inline-size;border-radius:24%/20%;padding:2.2cqw;background:linear-gradient(150deg,#3a4651,#12181e 60%);box-shadow:0 0 0 1px #ffffff1f inset,0 30px 60px -15px #000c,0 0 60px -14px color-mix(in srgb,var(--zc) 55%,transparent);transition:box-shadow .9s var(--ease)}
+.watch{--zc:var(--z3);position:relative;aspect-ratio:422/514;container-type:inline-size;border-radius:24%/20%;padding:2.4%;background:linear-gradient(150deg,#3a4651,#12181e 60%);box-shadow:0 0 0 1px #ffffff1f inset,0 30px 60px -15px #000c,0 0 60px -14px color-mix(in srgb,var(--zc) 55%,transparent);transition:box-shadow .9s var(--ease)}
 .w-screen{position:relative;width:100%;height:100%;border-radius:22%/18%;background:#000;color:#fff;overflow:hidden;font-family:var(--text);transition:box-shadow .3s}
 .w-clock{position:absolute;top:7%;right:8%;font:500 8.4cqw/1 var(--num);letter-spacing:-.02em}
 .w-live{position:absolute;left:7%;top:38%;display:grid;justify-items:center;gap:1.4cqw}
