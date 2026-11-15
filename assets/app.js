@@ -37,7 +37,7 @@
   var MAXHR = 190, LIM = [[171, 5], [152, 4], [133, 3], [114, 2], [0, 1]];
   var zoneOf = function (hr) { for (var i = 0; i < LIM.length; i++) if (hr >= LIM[i][0]) return LIM[i][1]; return 1; };
   var live = $$("[data-live]").map(function (el) {
-    return { el: el, base: +el.dataset.base, amp: +el.dataset.amp, ph: +el.dataset.phase, hr: $(".lc-hr", el), zn: $(".lc-zone", el), thumb: $(".w-thumb", el), kc: $(".w-kcal", el), tm: $(".w-time", el), sec: 840 + Math.round(Math.random() * 300), kcal: 187, z: 0, last: 0, vis: false };
+    return { el: el, base: +el.dataset.base, amp: +el.dataset.amp, ph: +el.dataset.phase, hr: $(".lc-hr", el), zn: $(".lc-zone", el), thumb: $(".w-thumb", el), kc: $(".w-kcal", el), tm: $(".w-time", el), sec: (function (t) { var m = t && /^(\d+):(\d+)$/.exec(t.textContent); return m ? +m[1] * 60 + +m[2] : 840 + Math.round(Math.random() * 300); })($(".w-time", el)), kcal: 187, z: 0, last: 0, vis: false };
   });
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) { es.forEach(function (en) { live.forEach(function (l) { if (l.el === en.target) l.vis = en.isIntersecting; }); }); }, { threshold: 0.1 }) : null;
   live.forEach(function (l) { if (io) io.observe(l.el); else l.vis = true; });
@@ -57,7 +57,7 @@
   if (!calm) setInterval(function () { if (!document.hidden) tick(performance.now()); }, 1000);
   /* watch clock: elapsed time and kcal creep up while the card is on screen */
   var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-  if (!calm) setInterval(function () { if (document.hidden) return; live.forEach(function (l) { if (!l.tm || !l.vis) return; l.sec++; l.kcal += 0.18; l.tm.textContent = pad(Math.floor(l.sec / 60)) + ":" + pad(l.sec % 60); l.kc.textContent = Math.round(l.kcal); }); }, 1000);
+  if (!calm) setInterval(function () { if (document.hidden) return; live.forEach(function (l) { if (!l.tm || !l.vis) return; l.sec++; l.kcal += 0.18; l.tm.textContent = pad(Math.floor(l.sec / 60)) + ":" + pad(l.sec % 60); if (l.kc) l.kc.textContent = Math.round(l.kcal); }); }, 1000);
 
   /* ---------- header + nav highlight (no libraries needed) ---------- */
   var bar = $("#bar");
@@ -184,8 +184,8 @@
       caps.forEach(function (c) { c.classList.remove("on"); });
       setCap(0);
       tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: {
-        trigger: pin, start: "top top", end: "+=" + (vert ? 220 : 260) + "%", pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true,
-        onUpdate: function (s) { setCap(s.progress < .33 ? 0 : s.progress < .7 ? 1 : 2); $(".s-prog i", story) && ($(".s-prog i", story).style.transform = "scaleX(" + s.progress + ")"); },
+        trigger: pin, start: "top top", end: "+=" + (vert ? 300 : 350) + "%", pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: function (s) { var q = s.progress * tl.duration(); setCap(q < .33 ? 0 : q < .7 ? 1 : 2); $(".s-prog i", story) && ($(".s-prog i", story).style.transform = "scaleX(" + s.progress + ")"); },
         onRefresh: function () { layout(); }
       } });
       /* scene 1: client trains */
@@ -206,6 +206,19 @@
         .to(poke, { opacity: 1, duration: .08 }, .84).to(poke, { scale: .9, duration: .04 }, .9).to(poke, { scale: 1.08, duration: .04 }, .94)
         .add(function () { if (tl.scrollTrigger.direction > 0) { watchEl.classList.remove("buzz"); void watchEl.offsetWidth; watchEl.classList.add("buzz"); } }, .94)
         .to({}, { duration: .06 }, .94);
+      /* scene 4: Marcus unfolds downward and pushes the bottom card out; Anna stays folded on top */
+      var open = $(".s-open", story), body = $(".sm-body", story), meta = $(".sm-meta", story), rows = $$(".sm-col p, .sm-foot", story);
+      var dana = cards[cards.length - 1], liveTag = $(".lc-live", open);
+      gsap.set(body, { height: 0 }); gsap.set(meta, { opacity: 0 }); gsap.set(rows, { opacity: 0, y: 8 });
+      tl.to(poke, { scale: .9, duration: .04 }, 1.1)
+        .to(poke, { scale: 1, duration: .04 }, 1.14)
+        .to(dana, { opacity: 0, duration: .08, ease: "power2.in" }, 1.16)
+        .to(dana, { height: 0, paddingTop: 0, paddingBottom: 0, marginTop: -8, duration: .14, ease: "power2.inOut" }, 1.2)
+        .to(body, { height: "auto", duration: .16, ease: "power2.inOut" }, 1.2)
+        .to(liveTag, { x: -(meta.offsetWidth + 6), duration: .1 }, 1.24)
+        .to(meta, { opacity: 1, duration: .08 }, 1.28)
+        .to(rows, { opacity: 1, y: 0, duration: .1, stagger: .035, ease: "power2.out" }, 1.32)
+        .to({}, { duration: .12 }, 1.55);
     }
     var cur = -1;
     function setCap(i) { if (i === cur) return; cur = i; caps.forEach(function (c, k) { c.classList.toggle("on", k === i); }); }

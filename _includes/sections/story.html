@@ -3,6 +3,10 @@
 <div class="story-stage"><div class="s-watch">{% include watch.html hr=146 cls="" %}<span class="s-tag">{{ t.story[0].title | escape }}</span></div>
 <svg class="s-path" aria-hidden="true"><path class="sp-base"/><path class="sp-glow"/><g class="sp-dots"><circle r="5"/><circle r="5"/><circle r="5"/><circle r="5"/><circle r="5"/></g></svg>
 <div class="s-phone"><div class="ph-top"><b>watch.coach</b><span class="lc-live"><i></i>{{ t.live_lbl }}</span></div>
-{% include live-card.html name="Anna" hr=162 phase="0.3" amp=16 cls="s-card" %}<div class="s-card-wrap">{% include live-card.html name="Marcus" hr=138 phase="1.9" amp=14 cls="s-card" %}<button class="s-poke" type="button" tabindex="-1">{{ t.art.poke | escape }}</button></div>{% include live-card.html name="Dana" hr=118 phase="3.4" amp=12 cls="s-card" %}</div></div>
+{% include live-card.html name="Anna" hr=162 phase="0.3" amp=16 cls="s-card" %}{%- capture more -%}<span class="sm-meta"><span class="sm-bat"><u></u>69%</span><svg class="sm-chev" viewBox="0 0 16 16"><path d="M3 10.5 8 5.5l5 5"/></svg></span>
+<div class="sm-body"><div class="sm-rows"><div class="sm-col"><p><span>{{ t.art.kcal | escape }}</span><b>475 <small>kcal</small></b></p><p><span>{{ t.art.dist | escape }}</span><b>2.14 <small>km</small></b></p><p><span>HRV</span><b>47 <small>ms</small></b></p></div>
+<div class="sm-col"><p><span>{{ t.art.steps | escape }}</span><b>1,584</b></p><p><span>{{ t.art.battery | escape }}</span><b>74</b></p></div></div>
+<div class="sm-foot"><span class="sm-end">{{ t.art.end | escape }}</span><b class="w-time">38:17</b></div></div>{%- endcapture -%}<div class="s-card-wrap">{% include live-card.html name="Marcus" hr=138 phase="1.9" amp=14 cls="s-card s-open" extra=more %}<button class="s-poke" type="button" tabindex="-1">{{ t.art.poke | escape }}</button></div>{% include live-card.html name="Dana" hr=118 phase="3.4" amp=12 cls="s-card" %}
+</div></div>
 <ol class="caps">{% for s in t.story %}<li class="cap"><span class="cap-n">0{{ forloop.index }}</span><h3>{{ s.title | escape }}</h3><p>{{ s.text | escape }}</p></li>{% endfor %}</ol>
 <div class="s-prog" aria-hidden="true"><i></i></div></div></div></section>

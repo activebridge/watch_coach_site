@@ -218,6 +218,10 @@ art:
   battery: Body Battery
   stress: Stress
   breath: Breath
+  steps: Steps
+  kcal: Calories
+  dist: Distance
+  end: End training
   poke: Poke
   tip1: Rest day tomorrow
   tip2: Load +10% this week

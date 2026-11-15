@@ -348,3 +348,20 @@ html:not(.anim) .s-prog{display:none}
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 55%),linear-gradient(0deg,transparent 0,#000 40%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 55%),linear-gradient(0deg,transparent 0,#000 40%);mask-composite:intersect}
 .hero-bg::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,color-mix(in srgb,var(--signal) 55%,transparent),color-mix(in srgb,var(--z2) 35%,transparent));mix-blend-mode:soft-light;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 55%);mask-image:linear-gradient(90deg,transparent 0,#000 55%)}
 @media(max-width:760px){.hero-bg::before,.hero-bg::after{bottom:auto;height:min(100%,620px)}.hero-bg::before{background-position:68% 20%;opacity:.4;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent);-webkit-mask-composite:source-over;mask-composite:add}.hero-bg::after{-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent)}}
+
+/* story finale: Marcus unfolds downward and pushes Dana out, as in the app */
+.s-open{position:relative}
+.s-poke{top:40px!important;margin-top:0!important}
+.sm-meta{position:absolute;top:14px;right:16px;display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600}
+.sm-bat{display:inline-flex;align-items:center;gap:4px}.sm-bat u{width:14px;height:8px;border:1.5px solid currentColor;border-radius:2px;background:linear-gradient(90deg,currentColor 69%,transparent 69%)}
+.sm-chev{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sm-body{overflow:hidden}
+.sm-rows{display:grid;grid-template-columns:1fr 1fr;margin-top:6px;padding-top:7px;border-top:1px solid color-mix(in srgb,var(--on-zone) 22%,transparent);font-size:.68rem}
+.sm-col{display:grid;gap:3px;align-content:start}.sm-col+.sm-col{padding-left:10px;border-left:1px solid color-mix(in srgb,var(--on-zone) 22%,transparent)}.sm-col:first-child{padding-right:10px}
+.sm-col p{display:flex;justify-content:space-between;align-items:baseline;gap:4px;margin:0;white-space:nowrap}.sm-col span{opacity:.75;font-weight:600}.sm-col b{font:700 .88rem/1.2 var(--num)}.sm-col small{font:600 .62rem var(--text);opacity:.75}
+.sm-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-bottom:4px}
+.sm-end{display:inline-flex;align-items:center;height:26px;padding:0 11px;border:1.5px solid var(--on-zone);border-radius:99px;font:700 .68rem var(--text)}
+.sm-foot .w-time{font:700 .8rem var(--num);font-variant-numeric:tabular-nums}
+html.anim .sm-body{height:0}html.anim .sm-meta{opacity:0}
+/* static layout (no JS or reduced motion): the card stays collapsed */
+html:not(.anim) .sm-body,html:not(.anim) .sm-meta{display:none}

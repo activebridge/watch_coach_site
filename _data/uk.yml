@@ -209,7 +209,7 @@ prep:
     - Спав 8 год, оцінка 86.
     - Body Battery 82.
 client_zone: Зона
-live_lbl: Наживо
+live_lbl: Live
 home: "/uk/"
 other_home: "/"
 privacy_path: "/uk/privacy.html"
@@ -218,6 +218,10 @@ art:
   battery: Body Battery
   stress: Стрес
   breath: Дихання
+  steps: Кроки
+  kcal: Калорії
+  dist: Дистанція
+  end: Завершити тренування
   poke: Поштовх
   tip1: Завтра день відпочинку
   tip2: Навантаження +10% цього тижня
@@ -230,7 +234,7 @@ art:
   - П
   - С
   - Н
-  live: Наживо
+  live: Live
   gym: У залі
   call: Відеозв'язок
   set: Підхід 3 · 8 повторів
