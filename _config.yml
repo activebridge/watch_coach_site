@@ -10,6 +10,7 @@ google_site_verification: "Ad6n77Zc4MMFeNlqsa9wzD9Ql4vH1427p2hyJSeVXDI"   # toke
 form_endpoint: "https://api.watch.coach/api/v1/leads"                   # form backend URL; empty = demo mode, nothing is sent
 
 exclude:
+  - scottwebb-training-828741.jpg
   - README.md
   - Gemfile
   - Gemfile.lock

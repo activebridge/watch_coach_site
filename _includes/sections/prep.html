@@ -1,0 +1,10 @@
+<section class="prep" id="prep"><div class="wrap"><div class="sec-head" data-reveal><h2>{{ t.prep.h | escape }}</h2><p>{{ t.prep.p | escape }}</p></div>
+<div class="prep-grid"><div class="prep-cards" data-reveal>
+{% for c in t.prep.cards %}<article class="hint-card" data-level="{{ c.level }}"><div class="hc-top"><span class="lc-name">{{ c.name | escape }}</span><span class="hc-day">{{ c.when | escape }}</span></div>
+<p class="hc-level">{{ c.title | escape }}</p><p class="hc-tip">{{ c.tip | escape }}</p>
+<ul class="hc-why">{% for r in c.why %}<li>{{ r | escape }}</li>{% endfor %}</ul>
+{% if c.note %}<div class="hc-note"><span>{{ t.prep.note_lbl | escape }}</span><p>{{ c.note | escape }}</p></div>{% endif %}
+<span class="hc-ok">OK</span></article>{% endfor %}</div>
+<div class="prep-side" data-reveal><h3>{{ t.prep.signals_h | escape }}</h3><ul class="prep-chips">{% for s in t.prep.signals %}<li>{{ s | escape }}</li>{% endfor %}</ul>
+<ol class="prep-flow">{% for s in t.prep.flow %}<li>{{ s | escape }}</li>{% endfor %}</ol>
+<p class="prep-note">{{ t.prep.disclaimer | escape }}</p></div></div></div></section>

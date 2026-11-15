@@ -137,6 +137,8 @@ back: Back to the site
 nav:
 - id: story
   label: How it works
+- id: prep
+  label: Before the session
 - id: features
   label: Features
 - id: pricing
@@ -169,6 +171,43 @@ bento_h: Everything you need around the session
 bento_p: Before, during and after — in one calm dashboard.
 final_h: See how your client feels — live.
 final_p: Apply for the beta. We review applications by hand and reply within 7 days.
+prep:
+  h: Know how your client feels before the first rep
+  p: "When the training starts, the card shows a short hint: what to do today and why. It is worked out from the client's watch and their history."
+  note_lbl: Your note, 6 days ago
+  signals_h: What it looks at
+  signals:
+  - Sleep length and score
+  - Body Battery
+  - Heart rate variability
+  - Resting heart rate
+  - Last workout
+  - The week's load
+  - Stress right now
+  - Your own note
+  flow:
+  - The client's watch sends last night's sleep and recovery.
+  - The app compares it with their own norm and recent workouts.
+  - You get one clear line before the first set. Tap OK and go.
+  disclaimer: A guide for the coach, not medical advice. You choose which signals it may use, or switch it off.
+  cards:
+  - name: Anna
+    level: easy
+    when: Today, 07:40
+    title: Go easier today
+    tip: Short sleep. Cut volume by about 20%.
+    why:
+    - Slept only 5.4 h.
+    - HRV 41 ms, usual 55.
+    note: Left knee, no deep squats.
+  - name: Marcus
+    level: push
+    when: Today, 18:10
+    title: Strong day
+    tip: Rested and charged. A good day to push.
+    why:
+    - Slept 8 h, score 86.
+    - Body Battery 82.
 client_zone: Zone
 live_lbl: Live
 home: "/"
