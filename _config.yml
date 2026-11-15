@@ -1,13 +1,13 @@
-title: wrist.coach
-url: "https://wrist.coach"
+title: watch.coach
+url: "https://watch.coach"
 baseurl: ""
 markdown: kramdown
 
 # Site-wide values used by templates
-email: contact@wrist.coach
-instagram: https://www.instagram.com/wrist.coach/
+email: contact@watch.coach
+instagram: https://www.instagram.com/watch.coach/
 google_site_verification: "Ad6n77Zc4MMFeNlqsa9wzD9Ql4vH1427p2hyJSeVXDI"   # token from Google Search Console (HTML tag method); empty = no tag
-form_endpoint: "https://api.wrist.coach/api/v1/leads"                   # form backend URL; empty = demo mode, nothing is sent
+form_endpoint: "https://api.watch.coach/api/v1/leads"                   # form backend URL; empty = demo mode, nothing is sent
 
 exclude:
   - README.md

@@ -1,6 +1,6 @@
-# wrist.coach — landing site
+# watch.coach — landing site
 
-Jekyll site (EN + UA) for wrist.coach, deployed to GitHub Pages at `https://wrist.coach/`. Structure follows the "wrist.coach — структура лендінгу" doc; design tokens and fonts come from the main `coach_link` app.
+Jekyll site (EN + UA) for watch.coach, deployed to GitHub Pages at `https://watch.coach/`. Structure follows the "watch.coach — структура лендінгу" doc; design tokens and fonts come from the main `coach_link` app.
 
 ## Run
 
@@ -13,7 +13,7 @@ Without Bundler: `JEKYLL_NO_BUNDLER_REQUIRE=1 jekyll serve`.
 
 ## Where things are
 
-- `_config.yml` — `url`, `baseurl`, email, Instagram, `form_endpoint` (empty = demo mode, nothing is sent). The custom domain is configured with `url: "https://wrist.coach"` and an empty `baseurl`.
+- `_config.yml` — `url`, `baseurl`, email, Instagram, `form_endpoint` (empty = demo mode, nothing is sent). The custom domain is configured with `url: "https://watch.coach"` and an empty `baseurl`.
 - `_data/en.yml`, `_data/uk.yml` — all copy. Edit text here, keep both files in sync.
 - `_layouts/default.html`, `_includes/` — page shell and sections (`sections/*`, feature card art in `art/*`, live card / watch mockups).
 - `index.html`, `uk/index.html`, and the legal pages `privacy.html`, `terms.html` (+ `uk/…`) — thin pages that pick the language via `lang:` front matter.
