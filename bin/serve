@@ -1,0 +1,4 @@
+#!/bin/sh
+# Jekyll/Sass crash on non-ASCII source under the default C/POSIX locale
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+cd "$(dirname "$0")/.." && exec bundle exec jekyll serve "$@"

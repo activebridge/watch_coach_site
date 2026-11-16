@@ -6,7 +6,7 @@ Jekyll site (EN + UA) for watch.coach, deployed to GitHub Pages at `https://watc
 
 ```bash
 bundle install              # once (github-pages gem = the engine Pages uses)
-bundle exec jekyll serve    # http://localhost:4000/   (UA: /uk/)
+bin/serve    # sets a UTF-8 locale; http://localhost:4000/   (UA: /uk/)
 ```
 
 Without Bundler: `JEKYLL_NO_BUNDLER_REQUIRE=1 jekyll serve`.
