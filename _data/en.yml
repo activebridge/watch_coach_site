@@ -368,7 +368,9 @@ plans:
   per: "/ month"
   features:
   - Up to 5 clients at the same time
-  - All features
+  - Pre-workout tips based on the client's condition
+  - Workout history
+  - Workout progress
   featured: true
 - name: PRO MAX
   price: "$29.99"
