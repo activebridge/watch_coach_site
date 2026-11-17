@@ -5,7 +5,7 @@ markdown: kramdown
 
 # Site-wide values used by templates
 email: contact@watch.coach
-instagram: https://www.instagram.com/watch.coach/
+instagram: https://www.instagram.com/watch.coach.app/
 google_site_verification: "Ad6n77Zc4MMFeNlqsa9wzD9Ql4vH1427p2hyJSeVXDI"   # token from Google Search Console (HTML tag method); empty = no tag
 form_endpoint: "https://api.watch.coach/api/v1/leads"                   # form backend URL; empty = demo mode, nothing is sent
 
