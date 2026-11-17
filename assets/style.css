@@ -315,6 +315,7 @@ html:not(.anim) .s-prog{display:none}
 /* pricing: three plans */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .plans .price-card{max-width:none;display:flex;flex-direction:column;padding:clamp(24px,3vw,36px);border-radius:28px;box-shadow:0 0 0 1px var(--glass-line) inset}
+.plans .price{flex-wrap:wrap;gap:4px 10px}.plans .price b{font-size:clamp(2.4rem,1.2rem + 3vw,3.4rem);white-space:nowrap}.plans .price span{white-space:nowrap}
 .plans .price-card .tag.solid{align-self:flex-start}.plans .price-card ul{flex:1}
 .plans .price-card.featured{box-shadow:0 0 0 1.5px color-mix(in srgb,var(--signal) 70%,transparent) inset,0 40px 100px -40px var(--glow)}
 .plans .price-card:not(.featured) .btn{background:var(--glass);color:var(--ink);box-shadow:0 0 0 1px var(--glass-line) inset}
@@ -365,3 +366,4 @@ html:not(.anim) .s-prog{display:none}
 html.anim .sm-body{height:0}html.anim .sm-meta{opacity:0}
 /* static layout (no JS or reduced motion): the card stays collapsed */
 html:not(.anim) .sm-body,html:not(.anim) .sm-meta{display:none}
+.s-poke{cursor:default;outline:0;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}.s-poke:focus,.s-poke:active,.s-poke:focus-visible{outline:0;box-shadow:none}

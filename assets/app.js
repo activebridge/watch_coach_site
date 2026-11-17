@@ -231,3 +231,12 @@
   var tries = 0;
   (function wait() { if (start()) return; if (++tries < 80) setTimeout(wait, 50); })();
 })();
+
+/* easter egg: the Poke button in the story phone */
+(function () {
+  var a;
+  document.addEventListener("click", function (e) {
+    var t = e.target; if (!t.closest || !t.closest(".s-poke")) return;
+    try { if (!a) a = new Audio("/assets/w.wav"); a.currentTime = 0; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (x) {}
+  });
+})();
